@@ -25,7 +25,7 @@ services:
       - DB_PORT=3306
       - DB_USER=root
       - DB_PASSWORD=password
-      - DB_NAME=railway
+      - DB_NAME=resq
       - JWT_SECRET=samantinha
       - JWT_REFRESH_SECRET=samantinha
     depends_on:
