@@ -40,12 +40,6 @@ export default class QueryBuilder {
 
             let whereClause = `${primaryKey} = ?`;
             const values: any[] = [...valuesForSet, primaryKeyValue];
-
-            if ("clientId" in entity) {
-                whereClause += " AND clientId = ?";
-                values.push(entity.clientId);
-            }
-
             const sql = `UPDATE ${tableName} SET ${setClause} WHERE ${whereClause}`;
             return { sql, values };
         }

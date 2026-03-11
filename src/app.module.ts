@@ -8,7 +8,13 @@ import { UserModule } from './modules/user/user.module';
 import { VolunteersModule } from './modules/volunteers/volunteers.module';
 
 @Module({
-  imports: [DatabaseModule, EventsModule, GroupsModule, UserModule, VolunteersModule],
+  imports: [
+    DatabaseModule,
+    EventsModule, 
+    GroupsModule, 
+    UserModule, 
+    VolunteersModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
