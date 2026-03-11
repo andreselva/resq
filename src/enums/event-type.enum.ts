@@ -1,0 +1,5 @@
+export enum EventTypeEnum {
+    CLIMATE_DISASTER = 'CLIMATE_DISASTER',
+    FLOOD = 'FLOOD',
+    THUNDERSTORM = 'THUNDERSTORM'
+}
