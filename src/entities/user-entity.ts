@@ -7,7 +7,7 @@ export class UserEntity extends EntityModel implements IEntity {
     public name: string;
     public cpf: string;
     public cellphone: string;
-    public type: UserType = UserType.RISK;
+    public type: UserType = UserType.NORMAL;
     public latitude: number;
     public longitude: number;
     public created_at: string;

@@ -1,5 +1,5 @@
 export enum UserType {
     VOLUNTEER = 'VOLUNTEER',
-    RISK = 'RISK',
+    NORMAL = 'NORMAL',
     ADMIN = 'ADMIN'
 }
