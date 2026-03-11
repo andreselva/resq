@@ -8,7 +8,6 @@ import EntityModel from "src/entities/entity.model";
 export default abstract class BaseRepository<T extends EntityModel> {
     constructor(
         protected readonly database: MySQLDatabase,
-        // protected readonly authContext: AuthContextService
     ) {}
 
     async save(entity: IEntity) {
