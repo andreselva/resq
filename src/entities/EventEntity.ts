@@ -18,6 +18,6 @@ export class EventEntity extends EntityModel implements IEntity {
     }
 
     public getTableName(): string {
-        return 'user';
+        return 'event';
     }
 }

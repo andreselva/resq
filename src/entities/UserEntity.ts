@@ -1,6 +1,8 @@
 import { UserType } from "src/enums/user-type.enum";
+import EntityModel from "./EntityModel";
+import IEntity from "src/shared/interfaces/IEntity";
 
-export class UserEntity {
+export class UserEntity extends EntityModel implements IEntity {
     public id?: number = 0;
     public name: string;
     public cpf: string;
@@ -9,4 +11,12 @@ export class UserEntity {
     public latitude: number;
     public longitude: number;
     public created_at: string;
+
+    public getPrimaryKey(): string {
+        return 'id';
+    }
+
+    public getTableName(): string {
+        return 'user';
+    }
 }
