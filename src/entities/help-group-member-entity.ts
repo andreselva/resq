@@ -1,5 +1,5 @@
 import { HelpGroupMemberRoleEnum } from "src/enums/help-group-member-role.enum";
-import EntityModel from "./EntityModel";
+import EntityModel from "./entity.model";
 import IEntity from "src/shared/interfaces/IEntity";
 
 export class HelpGroupMemberEntity extends EntityModel implements IEntity {

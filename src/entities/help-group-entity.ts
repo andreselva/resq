@@ -1,5 +1,5 @@
 import { HelpGroupStatusEnum } from "src/enums/help-group-status.enum";
-import EntityModel from "./EntityModel";
+import EntityModel from "./entity.model";
 import IEntity from "src/shared/interfaces/IEntity";
 
 export class HelpGroupEntity extends EntityModel implements IEntity {

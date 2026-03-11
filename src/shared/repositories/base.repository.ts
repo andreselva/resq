@@ -3,7 +3,7 @@ import QueryBuilder from "../query-builder/query.builder";
 import IEntity from "../interfaces/IEntity";
 import { IEntityFactory } from "../interfaces/IEntityFactory";
 import DataMapper from "../mapper/data-mapper";
-import EntityModel from "src/entities/EntityModel";
+import EntityModel from "src/entities/entity.model";
 
 export default abstract class BaseRepository<T extends EntityModel> {
     constructor(

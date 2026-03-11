@@ -1,5 +1,5 @@
 import { UserType } from "src/enums/user-type.enum";
-import EntityModel from "./EntityModel";
+import EntityModel from "./entity.model";
 import IEntity from "src/shared/interfaces/IEntity";
 
 export class UserEntity extends EntityModel implements IEntity {

@@ -1,6 +1,6 @@
 import { EventStatusEnum } from "src/enums/event-status.enum";
 import { EventTypeEnum } from "src/enums/event-type.enum";
-import EntityModel from "./EntityModel";
+import EntityModel from "./entity.model";
 import IEntity from "src/shared/interfaces/IEntity";
 
 export class EventEntity extends EntityModel implements IEntity {
