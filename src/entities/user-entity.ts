@@ -11,6 +11,7 @@ export class UserEntity extends EntityModel implements IEntity {
     public latitude: number;
     public longitude: number;
     public created_at: string;
+    public status: number = 1;
 
     public getPrimaryKey(): string {
         return 'id';

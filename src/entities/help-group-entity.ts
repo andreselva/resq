@@ -10,6 +10,8 @@ export class HelpGroupEntity extends EntityModel implements IEntity {
     public meeting_lng: number;
     public status: HelpGroupStatusEnum = HelpGroupStatusEnum.FORMING;
     public created_at: string;
+    public disaster_event_id: number;
+    public max_members: number;
 
     public getPrimaryKey(): string {
         return 'id';
