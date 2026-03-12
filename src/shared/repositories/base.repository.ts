@@ -12,7 +12,11 @@ export default abstract class BaseRepository<T extends EntityModel> {
 
     async save(entity: IEntity) {
         const { sql, values } = QueryBuilder.buildQuery(entity, entity.getTableName(), entity.getPrimaryKey());
-        return await this.database.execute(sql, values);
+        const result = await this.database.execute(sql, values);
+        if ('id' in entity && (entity.id === 0 || entity.id === null || entity.id === undefined) && result.insertId > 0) {
+            entity.id = result.insertId;
+        }
+        return result;
     }
 
     extractToEntity(rows: any, entity: IEntityFactory<T>): T[] {
