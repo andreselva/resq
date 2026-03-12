@@ -11,6 +11,23 @@ export class EventsRepository extends BaseRepository<EventEntity> {
         super(database);
     }
 
+    async saveEvent(event: EventEntity) {
+        const insert = `INSERT INTO events (type, description, location, impact_radius, status) VALUES (?, ?, ST_SRID(POINT(?, ?), 4326), ?, ?)`;
+        const result = await this.database.execute(insert, [
+            event.type,
+            event.description,
+            event.longitude,
+            event.latitude,
+            event.impact_radius,
+            event.status
+        ]);
+
+        if (result.insertId > 0) {
+            event.id = result.insertId
+        }
+        return event;
+    }
+
     async getVolunteersForEvent(
         event: EventEntity, 
         minLon: number, 
@@ -20,29 +37,32 @@ export class EventsRepository extends BaseRepository<EventEntity> {
         radiusMeters: number) 
     {
         const query = `SELECT
-                            id, name, cpf, cellphone, type, ST_Y(location) as latitude, ST_X(location) as longitude,
-                            active, created_at,
+                            id,
+                            name,
+                            cpf,
+                            cellphone,
+                            type,
+                            ST_Latitude(location) AS latitude,
+                            ST_Longitude(location) AS longitude,
+                            active,
+                            created_at,
                             ST_Distance_Sphere(
                                 location,
                                 ST_SRID(POINT(?, ?), 4326)
                             ) AS distance_m
                         FROM users
-                        WHERE is_available = TRUE
-                        AND MBRContains(
-                                ST_MakeEnvelope(
-                                    ST_SRID(POINT(?, ?), 4326),
-                                    ST_SRID(POINT(?, ?), 4326)
-                                ),
-                                location
-                            )
+                            WHERE active = 1
+                            AND type = 'VOLUNTEER'
+                            AND ST_Longitude(location) BETWEEN ? AND ?
+                            AND ST_Latitude(location) BETWEEN ? AND ?
                         HAVING distance_m <= ?
                         ORDER BY distance_m ASC;`
         const result = await this.database.select(query, [
             event.longitude, 
             event.latitude, 
             minLon, 
-            minLat, 
             maxLon, 
+            minLat, 
             maxLat, 
             radiusMeters
         ]);

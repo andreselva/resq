@@ -12,8 +12,7 @@ export class EventEntity extends EntityModel implements IEntity {
     public longitude: number;
     public impact_radius: number;
     public status: EventStatusEnum = EventStatusEnum.PENDING
-    public created_by_user_id: number = 0;
-    public created_at: string;
+    public created_at?: string;
 
     public getPrimaryKey(): string {
         return 'id';

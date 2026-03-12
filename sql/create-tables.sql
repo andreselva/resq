@@ -11,24 +11,21 @@ CREATE TABLE users (
     UNIQUE KEY uk_users_cpf (cpf),
     INDEX idx_users_type (`type`),
     INDEX idx_users_active (active),
-    INDEX idx_users_location (location)
+    SPATIAL INDEX idx_users_location (location)
 );
 
 CREATE TABLE events (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     type ENUM('CLIMATE_DISASTER', 'FLOOD', 'THUNDERSTORM') NOT NULL,
     description VARCHAR(255) NOT NULL,
-    latitude DECIMAL(10,7) NOT NULL,
-    longitude DECIMAL(10,7) NOT NULL,
+    location POINT NOT NULL SRID 4326,
     impact_radius DECIMAL(6,2) NOT NULL,
     status ENUM('ACTIVE', 'PENDING', 'CLOSED') NOT NULL DEFAULT 'PENDING',
-    created_by_user_id BIGINT UNSIGNED NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     INDEX idx_disaster_events_status (status),
     INDEX idx_disaster_events_type (type),
-    INDEX idx_disaster_events_location (latitude, longitude),
-    INDEX idx_disaster_events_created_by (created_by_user_id)
+    SPATIAL INDEX idx_disaster_events_location (location)
 );
 
 CREATE TABLE help_groups (

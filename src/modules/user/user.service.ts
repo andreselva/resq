@@ -8,6 +8,6 @@ export class UserService {
     constructor(private readonly repository: UserRepository) {}
     async createUser(dto: UserDTO) {
         const entity = UserEntity.fromDTO(dto);
-        await this.repository.save(entity);
+        await this.repository.saveUser(entity);
     }
 }

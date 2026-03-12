@@ -28,8 +28,4 @@ export class EventDTO {
     @IsEnum(EventStatusEnum, { message: 'Invalid status. Must by PENDING, ACTIVE OR CLOSED' })
     @IsNotEmpty({ message: 'status cannot by empty' })
     status: EventStatusEnum;
-
-    @IsOptional()
-    @IsInt({ message: 'Invalid created_by_user_id! Must be a number.'})
-    created_by_user_id: number;
 }
