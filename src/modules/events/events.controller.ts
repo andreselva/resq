@@ -8,6 +8,6 @@ export class EventsController {
 
     @Post()
     async createEvent(@Body() dto: EventDTO) {
-        await this.service.saveEvent(dto);
+        return await this.service.saveEvent(dto);
     }
 }

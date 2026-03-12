@@ -16,7 +16,7 @@ export class EventsService {
         const entity = EventEntity.fromDTO(dto);
         const result = await this.repository.saveEvent(entity) as EventEntity;
         if (result instanceof EventEntity && result.id !== undefined && result.id > 0) {
-            await this.processor.process(result)
+           return await this.processor.process(result)
         }
     }
 }

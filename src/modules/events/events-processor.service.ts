@@ -30,7 +30,7 @@ export class EventsProcessorService {
         );
 
         if (volunteers.length > 0) {
-            console.log(volunteers);
+            return volunteers;
         }
     }
 }
