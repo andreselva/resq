@@ -2,6 +2,7 @@ import { UserType } from "src/enums/user-type.enum";
 import EntityModel from "./entity.model";
 import IEntity from "src/shared/interfaces/IEntity";
 import { UserDTO } from "src/dtos/user.dto";
+import { IUserRow } from "src/shared/interfaces/user-row.interface";
 
 export class UserEntity extends EntityModel implements IEntity {
     public id?: number = 0;
@@ -12,7 +13,7 @@ export class UserEntity extends EntityModel implements IEntity {
     public latitude: number;
     public longitude: number;
     public created_at: string;
-    public status: number = 1;
+    public active: number = 1;
 
     public getPrimaryKey(): string {
         return 'id';
@@ -30,6 +31,20 @@ export class UserEntity extends EntityModel implements IEntity {
         user.type = dto.type;
         user.latitude = dto.latitude;
         user.longitude = dto.longitude;
+        return user;
+    }
+
+    public static fromRow(i: IUserRow) {
+        const user = new UserEntity();
+        user.id = i.id;
+        user.name = i.name;
+        user.cpf = i.cpf;
+        user.cellphone = i.cellphone;
+        user.type = i.type;
+        user.latitude = i.latitude;
+        user.longitude = i.longitude;
+        user.created_at = i.created_at;
+        user.active = i.active;
         return user;
     }
 }

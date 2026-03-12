@@ -1,0 +1,12 @@
+INSERT INTO users (name, cpf, cellphone, type, location, active, created_at) VALUES
+('João Silva', '12345678901', '54999990001', 'VOLUNTEER', POINT(-51.515, -29.166), 1, NOW()),
+('Maria Oliveira', '12345678902', '54999990002', 'VOLUNTEER', POINT(-51.520, -29.170), 1, NOW()),
+('Carlos Souza', '12345678903', '54999990003', 'VOLUNTEER', POINT(-51.530, -29.160), 1, NOW()),
+('Ana Pereira', '12345678904', '54999990004', 'VOLUNTEER', POINT(-51.510, -29.180), 1, NOW()),
+('Lucas Santos', '12345678905', '54999990005', 'VOLUNTEER', POINT(-51.525, -29.175), 1, NOW()),
+
+('Fernanda Costa', '12345678906', '54999990006', 'NORMAL', POINT(-51.540, -29.165), 1, NOW()),
+('Ricardo Lima', '12345678907', '54999990007', 'NORMAL', POINT(-51.545, -29.170), 1, NOW()),
+('Patricia Gomes', '12345678908', '54999990008', 'NORMAL', POINT(-51.535, -29.180), 1, NOW()),
+('Bruno Alves', '12345678909', '54999990009', 'NORMAL', POINT(-51.520, -29.185), 1, NOW()),
+('Juliana Rocha', '12345678910', '54999990010', 'NORMAL', POINT(-51.515, -29.175), 1, NOW());

@@ -1,18 +1,17 @@
 CREATE TABLE users (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    full_name VARCHAR(150) NOT NULL,
+    name VARCHAR(150) NOT NULL,
     cpf CHAR(11) NOT NULL,
     cellphone VARCHAR(20) NOT NULL,
     `type` ENUM('VOLUNTEER', 'NORMAL', 'ADMIN') NOT NULL,
-    latitude DECIMAL(10,7) NOT NULL,
-    longitude DECIMAL(10,7) NOT NULL,
+    location POINT NOT NULL SRID 4326,
     active TINYINT(1) NOT NULL DEFAULT 1,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY uk_users_cpf (cpf),
     INDEX idx_users_type (`type`),
     INDEX idx_users_active (active),
-    INDEX idx_users_location (latitude, longitude)
+    INDEX idx_users_location (location)
 );
 
 CREATE TABLE events (
