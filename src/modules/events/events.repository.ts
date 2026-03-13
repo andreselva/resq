@@ -28,7 +28,7 @@ export class EventsRepository extends BaseRepository<EventEntity> {
         return event;
     }
 
-    async getVolunteersForEvent(
+    async getPeople(
         event: EventEntity, 
         minLon: number, 
         maxLon: number, 
@@ -52,7 +52,7 @@ export class EventsRepository extends BaseRepository<EventEntity> {
                             ) AS distance_m
                         FROM users
                             WHERE active = 1
-                            AND type = 'VOLUNTEER'
+                            AND type IN ('VOLUNTEER', 'NORMAL')
                             AND ST_Longitude(location) BETWEEN ? AND ?
                             AND ST_Latitude(location) BETWEEN ? AND ?
                         HAVING distance_m <= ?
