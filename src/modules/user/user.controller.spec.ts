@@ -11,9 +11,9 @@ describe('UserController', () => {
       providers: [
         {
           provide: UserService,
-          useValue: {}
-        }
-      ]
+          useValue: {},
+        },
+      ],
     }).compile();
 
     controller = module.get<UserController>(UserController);
