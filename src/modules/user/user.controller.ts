@@ -4,10 +4,10 @@ import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-    constructor(private readonly service: UserService) {}
+  constructor(private readonly service: UserService) {}
 
-    @Post()
-    async createUser(@Body() dto: UserDTO) {
-        await this.service.createUser(dto);
-    }
+  @Post()
+  async createUser(@Body() dto: UserDTO) {
+    await this.service.createUser(dto);
+  }
 }

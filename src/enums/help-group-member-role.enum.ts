@@ -1,4 +1,4 @@
 export enum HelpGroupMemberRoleEnum {
-    LEADER = 'LEADER',
-    MEMBER = 'MEMBER'
+  LEADER = 'LEADER',
+  MEMBER = 'MEMBER',
 }

@@ -1,5 +1,5 @@
 export enum HelpGroupStatusEnum {
-    FORMING = 'FORMANDO',
-    ACTIVE = 'ACTIVE',
-    FINISHED = 'FINISHED'
+  FORMING = 'FORMANDO',
+  ACTIVE = 'ACTIVE',
+  FINISHED = 'FINISHED',
 }

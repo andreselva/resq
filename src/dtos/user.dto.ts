@@ -1,4 +1,4 @@
-import { 
+import {
   IsEnum,
   IsInt,
   IsLatitude,
@@ -6,13 +6,12 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  Length
-} from "class-validator";
+  Length,
+} from 'class-validator';
 
-import { UserType } from "src/enums/user-type.enum";
+import { UserType } from 'src/enums/user-type.enum';
 
 export class UserDTO {
-
   @IsOptional()
   @IsInt({ message: 'Invalid ID. Must be a number.' })
   id?: number;
@@ -29,7 +28,9 @@ export class UserDTO {
   @IsNotEmpty({ message: 'Cellphone cannot be empty.' })
   cellphone: string;
 
-  @IsEnum(UserType, { message: 'Invalid user type. Must be VOLUNTEER, NORMAL OR ADMIN' })
+  @IsEnum(UserType, {
+    message: 'Invalid user type. Must be VOLUNTEER, NORMAL OR ADMIN',
+  })
   type: UserType;
 
   @IsLatitude({ message: 'Invalid latitude.' })

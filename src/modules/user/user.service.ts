@@ -5,9 +5,9 @@ import { UserEntity } from 'src/entities/user-entity';
 
 @Injectable()
 export class UserService {
-    constructor(private readonly repository: UserRepository) {}
-    async createUser(dto: UserDTO) {
-        const entity = UserEntity.fromDTO(dto);
-        await this.repository.saveUser(entity);
-    }
+  constructor(private readonly repository: UserRepository) {}
+  async createUser(dto: UserDTO) {
+    const entity = UserEntity.fromDTO(dto);
+    await this.repository.saveUser(entity);
+  }
 }

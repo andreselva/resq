@@ -4,10 +4,10 @@ import { EventDTO } from 'src/dtos/event.dto';
 
 @Controller('events')
 export class EventsController {
-    constructor(private readonly service: EventsService) {}
+  constructor(private readonly service: EventsService) {}
 
-    @Post()
-    async createEvent(@Body() dto: EventDTO) {
-        return await this.service.saveEvent(dto);
-    }
+  @Post()
+  async createEvent(@Body() dto: EventDTO) {
+    return await this.service.saveEvent(dto);
+  }
 }

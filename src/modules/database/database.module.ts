@@ -3,8 +3,7 @@ import MySQLDatabase from './mysql-database';
 
 @Global()
 @Module({
-    providers: [MySQLDatabase],
-    exports: [MySQLDatabase]
+  providers: [MySQLDatabase],
+  exports: [MySQLDatabase],
 })
-
 export class DatabaseModule {}

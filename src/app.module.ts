@@ -7,12 +7,7 @@ import { GroupsModule } from './modules/groups/groups.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [
-    DatabaseModule,
-    EventsModule, 
-    GroupsModule, 
-    UserModule, 
-  ],
+  imports: [DatabaseModule, EventsModule, GroupsModule, UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
